@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <script>
+            let end = false;
+
+while (!end) {
+    let mass = parseFloat(prompt("Enter your mass in kg:"));
+    let height = parseFloat(prompt("Enter your height in cm:"));
+
+    let bmi = mass / ((height / 100) ** 2);
+
+    if (bmi < 18.5) {
+        alert("You are underweight.");
+    } else if (bmi < 25) {
+        alert("Your BMI is normal.");
+    } else if (bmi < 30) {
+        alert("You are overweight.");
+    } else {
+        alert("You are obese.");
+    }
+
+    let answer = prompt("Do you want to calculate BMI again? (yes/no)");
+
+    // Convert the answer to lowercase to handle different input cases
+    answer = answer.toLowerCase();
+
+    // Check if the user wants to end
+    if (answer !== "yes") {
+        end = true;
+        alert("Thank you for using the BMI calculator.");
+    }
+}
+
+
+        </script>
+        
+    </head>
+    <body></body>
+</html>
+
+

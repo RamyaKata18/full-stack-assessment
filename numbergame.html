@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Number Guessing Game</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            width: 50%;
+            max-width: 800px;
+            min-width: 480px;
+            margin: 0 auto;
+            background-color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <h>Guess the Number</h>
+    <p>Select a random number from 1 to 100</p>
+    <div class="form">
+        <label for="guessfield">Enter a guess:</label>
+        <input type="text" id="guessfield" class="guessfield">
+        <input type="submit" value="Submit Guess" class="guessSubmit" id="submitguess">
+    </div>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function() {
+            let y = Math.floor(Math.random() * 100 + 1);
+            let guess = 0;
+            let chances = 5;
+
+            document.getElementById("submitguess").onclick = function () {
+                guess++;
+                chances--;
+
+                let x = parseInt(document.getElementById("guessfield").value);
+
+                if (x === y) {
+                    alert("Congratulations! You guessed it right in " + guess + " guesses");
+                } else if (chances === 0) {
+                    alert("Sorry, chances are over!");
+                    document.getElementById("guessfield").disabled = true;
+                    document.getElementById("submitguess").disabled = true;
+                } else if (x > y) {
+                    alert("Oops, sorry! Try a smaller number. Chances left: " + chances);
+                } else {
+                    alert("Oops, sorry! Try a higher number. Chances left: " + chances);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
